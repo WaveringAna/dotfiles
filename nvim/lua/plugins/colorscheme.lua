@@ -1,8 +1,10 @@
 return {
-    { "nyoom-engineering/oxocarbon.nvim" }, {
-        "LazyVim/LazyVim",
-        opts = {
-            colorscheme = "oxocarbon",
-        },
-    }
+  { "nyoom-engineering/oxocarbon.nvim" },
+  { "sainnhe/gruvbox-material" },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "oxocarbon",
+    },
+  },
 }
