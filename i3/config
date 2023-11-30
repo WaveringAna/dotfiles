@@ -12,7 +12,7 @@
 set $mod Mod4
 
 # Custom bindings and commmands
-bindsym $mod+Shift+F exec firefox
+bindsym $mod+Shift+F exec thorium-browser
 bindsym $mod+Shift+D exec discord
 bindsym $mod+Shift+W exec looking-glass-client
 
@@ -20,12 +20,12 @@ bindsym $mod+Shift+W exec looking-glass-client
 exec --no-startup-id "picom --config /home/regent/.config/picom/picom.conf"
 
 # Displays
-exec_always xrandr --output DP-1 --mode 3440x1440 --rate 100 --primary
+exec_always xrandr --output DP-0 --mode 3440x1440 --rate 100 --primary
 #exec_always xrandr --output DisplayPort-1 --mode 1920x1080 --rotate right --right-of DisplayPort-0
 
 # Wallpaper
 #exec --no-startup-id nitrogen --restore
-exec xwinwrap -fs -ov -ni -- mpv -wid WID -loop ~/ani/texas-sit.mp4
+exec xwinwrap -fs -ov -ni -- mpv --no-audio -wid WID -loop ~/ani/texas-sit.mp4
 
 # Redshift (like f.lux)
 exec --no-startup-id redshift-gtk
@@ -33,11 +33,13 @@ exec --no-startup-id redshift-gtk
 # Mouse settings
 set $ctmVal 2
 
-# Mouse settings
-exec --no-startup-id xinput set-prop 8 "Coordinate Transformation Matrix" 1, 0, 0, 0, 1, 0, 0, 0, $ctmVal
-exec --no-startup-id xinput set-prop 8 "libinput Accel Profile Enabled" 0, 1
+exec --no-startup-id xinput set-prop "pointer:Razer Orochi V2" "Coordinate Transformation Matrix" 1, 0, 0, 0, 1, 0, 0, 0, $ctmVal
+exec --no-startup-id xinput set-prop "pointer:Razer Orochi V2" "libinput Accel Profile Enabled" 0, 1
 
-# Theme
+# Turn off title bar
+
+for_window [class="^.*"] border pixel 0
+
 # class                 border  backgr. text    indicator child_border
 client.focused          #282828 #282828 #ffffff #282828   #282828
 client.focused_inactive #32302f #32302f #ffffff #32302f   #32302f
@@ -47,7 +49,6 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
 
-# Gap 
 gaps inner 10px
 gaps outer 2px
 smart_gaps on
@@ -225,3 +226,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 exec_always ~/.config/polybar/launch.sh &
+bindsym $mod+Ctrl+Right resize shrink width 1 px or 1 ppt
+bindsym $mod+Ctrl+Up resize grow height 1 px or 1 ppt
+bindsym $mod+Ctrl+Down resize shrink height 1 px or 1 ppt
+bindsym $mod+Ctrl+Left resize grow width 1 px or 1 ppt
