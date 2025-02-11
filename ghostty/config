@@ -1,0 +1,5 @@
+font-size = 24
+theme = light:rose-pine-dawn,dark:rose-pine-moon
+background-opacity = 0.8
+background-blur = 10
+macos-titlebar-style = hidden
